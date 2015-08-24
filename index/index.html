@@ -1,0 +1,174 @@
+<link rel="import" href="../core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="../core-field/core-field.html">
+<link rel="import" href="../core-icon/core-icon.html">
+<link rel="import" href="../core-input/core-input.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../speech-mic/speech-mic.html">
+<link rel="import" href="../core-menu/core-submenu.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../core-item/core-item.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../core-pages/core-pages.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../paper-tabs/paper-tab.html">
+
+<polymer-element name="my-element">
+
+  <template>
+    <style>    
+      html, body {
+        height: 100%;
+        margin: 0px;
+        font-family: RobotoDraft, sans-serif;
+        background-color: rgb(229, 229, 229);
+      }
+      core-toolbar {
+        color: rgb(241, 241, 241);
+        fill: rgb(241, 241, 241);
+        background-color: transparent;
+      }
+      paper-button.hover:hover {
+        background-color: rgb(238, 238, 238);
+      }
+      core-item.hover:hover {
+        background-color: rgb(238, 238, 238);
+      }
+      img.logo {
+        position: relative;
+        top: 70px;
+        height: 2px;
+        width: 100px;
+      }
+      core-scroll-header-panel {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgb(238, 238, 238);
+      }
+      .content {
+        padding: 8px;
+      }
+      #core_toolbar1 {
+        background-color: rgb(183, 28, 28);
+      }
+      #core_toolbar {
+        background-color: rgb(183, 28, 28);
+      }
+      #core_field {
+        left: 18px;
+        top: 140px;
+        position: absolute;
+      }
+      #core_drawer_panel {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+      }
+      #div1 {
+        background-color: rgb(255, 255, 255);
+      }
+      #core_field1 {
+        left: 0px;
+        top: 130px;
+        position: absolute;
+        width: 240px;
+        height: 50px;
+        background-color: rgb(255, 255, 255);
+      }
+      #core_icon {
+        width: 50px;
+        height: 30px;
+      }
+      #input {
+        padding: 12px;
+      }
+    </style>
+    <core-drawer-panel transition selected="drawer" id="core_drawer_panel" touch-action>
+      <core-scroll-header-panel headermargin="128" condenses keepcondensedheader headerheight="192" id="core_scroll_header_panel" drawer>
+        <core-toolbar id="core_toolbar" class="tall">
+          <core-field id="core_field" icon="search" theme="core-light-theme" center horizontal layout>
+            <core-input id="core_input" flex></core-input>
+          </core-field>
+          <core-field id="core_field1" icon="search" theme="core-light-theme" horizontal layout start>
+            <core-input id="core_input1" flex></core-input>
+            <core-icon icon="search" id="core_icon"></core-icon>
+            <speech-mic transcript="anal" completetranscript="anal" id="speech_mic"></speech-mic>
+            <input id="input" placeholder="type something..." is="core-input" center horizontal layout center-justified>
+          </core-field>
+        </core-toolbar>
+        <core-menu selected="{{ page }}" valueattr="data-category" selectedindex="0" id="core_menu">
+          <paper-button raised active id="paper_button1" class="maroon-ripple hover">
+            <core-item id="core_item3" data-category="home" icon="home" label="Home" horizontal center layout>
+              <div id="div">                          </div>
+            </core-item>
+          </paper-button>
+          
+          <paper-button raised id="paper_button2" data-category="bushub" class="maroon-ripple hover">
+            <core-item id="core_item" label="BusHUB" horizontal center layout>
+              <div id="div2">                                </div>
+            </core-item>
+          </paper-button>
+          
+          <paper-button raised id="paper_button3" data-category="navhub" class="maroon-ripple hover">
+            <core-item id="core_item1" label="NavHUB" horizontal center layout>
+              <div id="div3">                                </div>
+            </core-item>
+          </paper-button>
+        </core-menu>
+      </core-scroll-header-panel>
+      <core-scroll-header-panel headermargin="128" condenses keepcondensedheader headerheight="192" id="core_scroll_header_panel1" main fit>
+        <core-toolbar id="core_toolbar1" class="tall">
+          <paper-icon-button icon="menu" id="paper_icon_button" core-drawer-toggle></paper-icon-button>
+          <div id="div4" flex></div>
+          <paper-menu-button id="paper_menu_button">
+            <paper-icon-button icon="more-vert" id="paper_icon_button1"></paper-icon-button>
+            <paper-dropdown id="paper_dropdown" class="dropdown" halign="right">
+              <core-menu selected="33" selectedindex="33" id="core_menu1" class="menu">
+                <paper-button raised id="paper_button4" class="hover maroon-ripple">
+                  <core-item id="core_item4" icon="settings" label="Settings" horizontal center layout></core-item>
+                </paper-button>
+                
+                <paper-button raised active id="paper_button" class="hover maroon-ripple">
+                  <core-item id="core_item2" icon="lock" label="Log Out" horizontal center layout></core-item>
+                </paper-button>
+                
+              </core-menu>
+            </paper-dropdown>
+          </paper-menu-button>
+        </core-toolbar>
+        <div id="div1" class="container" fit layout vertical>
+          <core-pages selected="{{ page }}" valueattr="data-category" selectedindex="0" notap id="core_pages">
+            <section id="section" data-category="home" active>
+              <h1 id="h1">Home</h1>
+              <div id="div5">Home Content</div>
+            </section>
+            <section id="section1" data-category="bushub">
+              <bushub-content id="bushub_content" size="100"></bushub-content>
+            </section>
+            <section id="section2" data-category="navhub">
+              <paper-tabs selected="0" selectedindex="0" id="paper_tabs" horizontal center layout>
+                <paper-tab id="paper_tab" inline flex center-center horizontal layout active>ITEM ONE</paper-tab>
+                <paper-tab id="paper_tab1" inline flex center-center horizontal layout>ITEM TWO</paper-tab>
+                <paper-tab id="paper_tab2" inline flex center-center horizontal layout>ITEM THREE</paper-tab>
+              </paper-tabs>
+            </section>
+          </core-pages>
+        </div>
+      </core-scroll-header-panel>
+    </core-drawer-panel>
+  </template>
+
+  <script>
+
+    Polymer({
+      page: 0
+    });
+
+  </script>
+
+</polymer-element>
