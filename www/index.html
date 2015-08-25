@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>  
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" conten="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        
+        
+        <link rel="stylesheet" href = "css/app.css">
+        <link rel="import" href = "elements.html">
+        
+        <style type = "text/css">
+            html,body{
+                    height: 100%;
+                    margin: 0;
+                    background-color: #E5E5E5;
+                    font-family: 'RobotoDraft', sans-serif;
+            }
+            core-toolbar{
+                color: #f1f1f1;
+                fill: #f1f1f1;
+                background-color: transparent;
+
+            }   
+             paper-button.hover:hover {
+              background: #eee;
+            }
+
+            paper-button.maroon-ripple::shadow #ripple {
+              color: #B71C1C;
+            }
+            core-item.maroon-ripple::shadow #ripple{ 
+              color: #B71C1C;
+            }
+            core-item.hover:hover {
+              background: #eee;
+            }
+            img.logo {
+                position: relative;
+                top: 70px;
+                height: 2px;
+                width: 100px;
+            }
+            core-scroll-header-panel {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: #eee;
+            }
+
+        /* background for toolbar when it is at its full size */
+        core-scroll-header-panel::shadow #headerBg {
+          background-image: url(img/bg9.jpg);
+        }
+
+        /* background for toolbar when it is condensed */
+        core-scroll-header-panel::shadow #condensedHeaderBg {
+          background-color: #B71C1C;
+        }
+        .content {
+        padding: 8px;
+        }
+        </style>
+        
+        <script src="components/bower_components/webcomponentsjs/webcomponents.js"></script>
+        <script src="components/bower_components/webcomponentsjs/src/HTMLImports/HTMLImports.js"></script>
+        <script src="components/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+       
+        
+    </head>
+    
+    <body fullbleed vertical layout unresolved>
+        <template is="auto-binding" id="page">    
+            <core-drawer-panel>
+                <core-scroll-header-panel condenses keepcondensedheader drawer>
+                    <core-toolbar class="tall">
+                        Menu
+                    </core-toolbar>    
+                        <core-menu selected="{{page}}" valueattr="data-category">
+                            <paper-button raised class="maroon-ripple hover"><core-item data-category="home" icon="home" label="Home"> 
+ <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></core-item></paper-button><br></br>    
+                    <paper-button raised data-category="bushub" class="maroon-ripple hover"><core-item label="BusHUB"><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></core-item></paper-button><br></br>
+                            <paper-button raised data-category="navhub" class="maroon-ripple hover"><core-item label="NavHUB"><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></core-item></paper-button>
+                        </core-menu>
+                </core-scroll-header-panel>
+
+                <core-scroll-header-panel condenses keepcondensedheader main fit> 
+                    <core-toolbar class="tall">
+                        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+                        <div flex></div>
+                        <paper-menu-button>
+                            <paper-icon-button icon="more-vert"></paper-icon-button>
+                            <paper-dropdown class="dropdown" halign= "right">
+                              <core-menu class="menu">
+                                <paper-button raised class="hover maroon-ripple" role="button" style="color: black"><core-item icon="settings" label="Settings"></core-item></paper-button><br>
+                                <paper-button raised class="hover maroon-ripple" role="button" style="color: black"><core-item icon="lock" label="Log Out"></core-item></paper-button><br> 
+                              </core-menu>
+                            </paper-dropdown>
+                        </paper-menu-button>
+                    </core-toolbar>
+                    <div class="container" fit layout vertical>
+                        <core-pages selected="{{page}}" valueattr="data-category">
+                            <section data-category="home">
+                                <h1>Home</h1>
+                                <div>Home Content</div>
+                            </section>
+                            <section data-category="bushub">
+                                <bushub-content size="100"></bushub-content>
+                            </section>
+                            <section data-category="navhub">
+                                <paper-tabs selected="0">
+                                    <paper-tab>ITEM ONE</paper-tab>
+                                    <paper-tab>ITEM TWO</paper-tab>
+                                    <paper-tab>ITEM THREE</paper-tab>
+                                </paper-tabs>
+                            </section>
+                        </core-pages>
+                    </div>
+                </core-scroll-header-panel>
+            </core-drawer-panel>
+        </template>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>        
+        
+        
